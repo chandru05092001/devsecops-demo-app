@@ -6,5 +6,5 @@ on:
 
 jobs:
   security:
-    uses: chandru05092001/central-devsecops/.github/workflows/devsecops.yml@main
+    uses: chandru05092001/devsecops-workflows/.github/workflows/devsecops.yaml@main
     secrets: inherit
