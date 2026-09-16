@@ -4,6 +4,11 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
 jobs:
   security:
     uses: chandru05092001/devsecops-workflows/.github/workflows/devsecops.yaml@main
