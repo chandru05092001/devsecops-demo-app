@@ -6,4 +6,4 @@ on:
 
 jobs:
   security:
-    uses: chandru05092001/devsecops-workflows/.github/workflows/devsecops.yaml
+    uses: chandru05092001/devsecops-workflows/.github/workflows/devsecops.yaml@main
