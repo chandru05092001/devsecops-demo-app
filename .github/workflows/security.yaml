@@ -1,0 +1,9 @@
+name: Application Security
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  security:
+    uses: chandru05092001/central-devsecops/.github/workflows/devsecops.yaml
