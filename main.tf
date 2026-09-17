@@ -3,5 +3,5 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "vulnerable_bucket" {
-  bucket = "my-test-checkov-bucket-insecure-12345"
+  bucket = "my-test-checkov-bucket-insecure-1234"
 }
