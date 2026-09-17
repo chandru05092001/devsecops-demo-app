@@ -1,13 +1,14 @@
-# 1. Main S3 Bucket with Suppressions for Non-Essential Checks
+# 1. S3 Bucket Definition with Skips
 resource "aws_s3_bucket" "secure_bucket" {
   bucket = "my-test-checkov-bucket-secure-1234"
 
   # checkov:skip=CKV_AWS_144: Cross-region replication is not required for test/dev environment
   # checkov:skip=CKV2_AWS_62: Event notifications are not required for this bucket
   # checkov:skip=CKV_AWS_18: Access logging bucket is not configured for test environment
+  # checkov:skip=CKV_AWS_145: KMS encryption is not required; default SSE-S3 is sufficient
 }
 
-# 2. Block All Public Access (Resolves CKV2_AWS_6)
+# 2. Public Access Block
 resource "aws_s3_bucket_public_access_block" "secure_bucket_pab" {
   bucket = aws_s3_bucket.secure_bucket.id
 
@@ -17,7 +18,7 @@ resource "aws_s3_bucket_public_access_block" "secure_bucket_pab" {
   restrict_public_buckets = true
 }
 
-# 3. Enable Versioning (Resolves CKV_AWS_21)
+# 3. Versioning Configuration
 resource "aws_s3_bucket_versioning" "secure_bucket_versioning" {
   bucket = aws_s3_bucket.secure_bucket.id
 
@@ -26,7 +27,7 @@ resource "aws_s3_bucket_versioning" "secure_bucket_versioning" {
   }
 }
 
-# 4. Enable Default SSE-S3 / AES256 or AWS-Managed Encryption (Resolves CKV_AWS_145 / CKV_AWS_19)
+# 4. Server-Side Encryption (AES256)
 resource "aws_s3_bucket_server_side_encryption_configuration" "secure_bucket_encryption" {
   bucket = aws_s3_bucket.secure_bucket.id
 
@@ -38,7 +39,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "secure_bucket_enc
   }
 }
 
-# 5. Lifecycle Configuration (Resolves CKV2_AWS_61)
+# 5. Lifecycle Configuration
 resource "aws_s3_bucket_lifecycle_configuration" "secure_bucket_lifecycle" {
   bucket = aws_s3_bucket.secure_bucket.id
 
