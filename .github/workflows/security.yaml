@@ -12,4 +12,9 @@ permissions:
 jobs:
   security:
     uses: chandru05092001/devsecops-workflows/.github/workflows/devsecops.yaml@main
+
+    with:
+      sonar_project_key: chandru05092001_devsecops-demo-app
+      sonar_organization: chandru05092001
+
     secrets: inherit
