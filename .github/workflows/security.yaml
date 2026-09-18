@@ -17,5 +17,6 @@ jobs:
       sonar_project_key: chandru05092001_devsecops-demo-app
       sonar_organization: chandru05092001
       codeql_languages: python
+      docker_image_name: thedevopswizard
 
     secrets: inherit
