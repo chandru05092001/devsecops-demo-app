@@ -4,6 +4,6 @@
   "description": "Demo application for centralized DevSecOps pipeline",
   "private": true,
   "dependencies": {
-    "lodash": "4.17.1"
+    "lodash": "4.17.20"
   }
 }
