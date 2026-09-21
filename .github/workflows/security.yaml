@@ -18,6 +18,6 @@ jobs:
       sonar_organization: chandru05092001
       sonar_host_url: https://sonarcloud.io
       codeql_languages: python
-      docker_image_name: thedevopswizard
+      docker_image_name: devopswizard
 
     secrets: inherit
